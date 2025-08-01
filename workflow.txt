@@ -1,0 +1,27 @@
+Needed file structure for outputs
+
+data
+├── cell-ontology
+│   └── cl-full.obo
+├── networks
+└── raw
+
+####### data_prep #######
+
+preprocessing .h5ad file:
+include the following obs ->
+cell_ontology_class (MOST IMPORTANT: CELL TYPES)
+organ_tissue
+compartment
+anatomical_information
+
+See COVID_data.ipynb for example
+
+
+####### data_prep #######
+Update data_config to point to h5ad file in data/raw
+
+Run presave_compartments.py in data_prep/ to create tissue ontology
+
+Run script_0.constructPPI_rank.sh in scripts --- Creates ranked_genes.csv and .h5ad 
+Run script_0.constructPPI_extract.sh in scripts --- Creates a .txt file for each cell type and .csv for a summary
